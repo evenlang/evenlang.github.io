@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    {% seo %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+	<!-- font awesome icons -->
+	<script src="https://use.fontawesome.com/f6691ea328.js"></script>  
+	  
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/">
+	  
+	<link rel="icon" href="/evenlang_online/static/img/icon.png">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/evenlang_online/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="/evenlang_online/bootstrap/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/evenlang_online/bootstrap/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="/evenlang_online/bootstrap/carousel.css" rel="stylesheet">
+    <link href="/evenlang_online/assets/css/styles.css" rel="stylesheet">
+    <style type="text/css">
+  </style>
+  </head>
+  <body>
+  	{% include navigation_scientific.html %}
+      {{ content }}
+    
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <script src="{{'/bootstrap/jquery-3.2.1.slim.min.js' | relative_url}}"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write(<script src="{{'/bootstrap/jquery-slim.min.js' | relative_url}}"></script></script>
+  <script src="{{'/bootstrap/popper.min.js' | relative_url}}"></script>
+  <script src="{{'/bootstrap/bootstrap.min.js' | relative_url}}"></script>
+  <script src="{{'/bootstrap/bootstrap.js' | relative_url}}"></script>
+
+<div style="position: relative;">
+  
+<div id="modalcitation" class="modal">
+  <span class="close" id="citeclose" style="margin-top: -1em;margin-right: -0.5em;">&times;</span>
+  <!-- Modal content -->
+  <div class="modal-content" style="position: absolute;top: 30%;left: 50%;z-index:2;transform: translate(-50%, 0);width: max(50%, 300px); text-align: left;color: black;">
+    <div class="container-fluid" style="margin: auto;padding: 1em;">
+      Бузанов А.О., Казакова Т.Б., Постникова А.Е. Электронный портал о быстринском диалекте эвенского языка, 2021. Доступен по адресу <a href="https://evenlang.ru/">https://evenlang.ru/</a>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+<footer style="color: black; background-color: #10bbc4;position: relative;">
+  <div class="container lead">
+    <div class="footer_columns">
+      <div class="footer_column collapsed">
+        <div class="footer_column_title">
+          контакты
+        </div>
+        <div class="footer_column_text" style="display: flex;">
+          <div style="display: flex;flex-wrap: wrap;">
+          <ul style="list-style: none; margin-left: -40px;padding-right: 3em;">
+            <li><b>Антон Бузанов</b></li>
+            <li style="margin-top: -0.5em"><a href="mailto:anton.buzanov.00@gmail.com ">anton.buzanov.00@gmail.com</a></li>
+          </ul>
+          <ul style="list-style: none;margin-left: -40px;padding-right: 3em;">
+            <li><b>Анна Постникова</b></li>
+            <li style="margin-top: -0.5em"><a href="mailto:apostnikova@hse.ru">apostnikova@hse.ru</a></li>
+          </ul>
+          <ul style="list-style: none;margin-left: -40px;">
+            <li><b>Татьяна Казакова</b></li>
+            <li style="margin-top: -0.5em"><a href="mailto:tanusha.kazakova@gmail.com">tanusha.kazakova@gmail.com</a></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer_column collapsed" style="text-align: right;">
+        <div class="cite big">
+          как на нас ссылаться
+        </div>
+        <div class="cite small" style="display: none;">
+          <a id="citationbtn1">
+            как на нас ссылаться
+          </a>
+        </div>
+        <div class="footer_column_text cite">
+          <a id="citationbtn">
+            <i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 2.5em;padding-right: 1.6em;margin-top: 9px;"></i>
+          </a>
+          
+        </div>
+      </div>
+  </div>
+      <div style="text-align: center;padding-bottom: 1em;margin-top: -0.5em;font-size: 0.8em;color: white;">
+        Copyright © 2021-2022. Эвенская экспедиция. All Rights Reserved
+      </div>
+  </div>
+
+</footer>
+
+<link rel="stylesheet" href="/evenlang_online/assets/css/styles.css">
+<link rel="stylesheet" href="/evenlang_online/assets/css/footer.css">
+<link rel="stylesheet" href="/evenlang_online/assets/css/gallery.css">
+<!-- <link rel="stylesheet" media="all" href="/evenlang_online/assets/css/jquery.fancybox.min.css"/evenlang_online/> -->
+<script src="/evenlang_online/assets/js/app.js"></script>
+{% if page.title == "Галерея" %}
+<script src="/evenlang_online/assets/js/gallery.js"></script>
+{% else %}
+<script src="/evenlang_online/assets/js/modal.js"></script>
+{% endif %}
+
+
+  </body>
+</html>

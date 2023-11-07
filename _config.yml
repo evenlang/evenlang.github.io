@@ -1,0 +1,40 @@
+collections:
+  authors:
+    output: true
+  themes:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+gems:
+  - jekyll-paginate
+  - jekyll-paginate-multiple
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-redirect-from
+
+paginate: 5
+paginate_path: '/evenlang_online/scientific/main/page:num/'
+
+# paginate_multiple:
+#   - paginate: 5
+#     paginate_path: '/evenlang_online/scientific/main/page:num/'
+#     sub_dir: '/scientific'
