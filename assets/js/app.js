@@ -20,10 +20,19 @@
   document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
     const trigger = dropdown.querySelector('.dropdown-toggle');
     if (!trigger) return;
-    trigger.addEventListener('click', () => {
-      const open = trigger.getAttribute('aria-expanded') !== 'true';
+    const setOpen = (open) => {
       trigger.setAttribute('aria-expanded', String(open));
       dropdown.classList.toggle('is-open', open);
+    };
+    trigger.addEventListener('click', () => {
+      const open = trigger.getAttribute('aria-expanded') !== 'true';
+      setOpen(open);
+    });
+    dropdown.addEventListener('mouseenter', () => {
+      if (window.matchMedia('(min-width: 1181px)').matches) setOpen(true);
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      if (window.matchMedia('(min-width: 1181px)').matches) setOpen(false);
     });
   });
 
@@ -78,11 +87,70 @@
     link.rel = [...rel].join(' ');
   });
 
-  document.querySelectorAll('.fa-file-pdf-o').forEach((icon) => {
-    const link = icon.closest('a');
-    if (!link) return;
-    link.setAttribute('aria-label', 'Скачать PDF');
-    if (!link.title) link.title = 'Скачать PDF';
+  const fileActions = [
+    ['.fa-file-pdf-o', 'Скачать PDF'],
+    ['.fa-file-audio-o', 'Скачать аудио'],
+    ['.fa-file-image-o', 'Скачать оригинал']
+  ];
+
+  fileActions.forEach(([selector, label]) => {
+    document.querySelectorAll(selector).forEach((icon) => {
+      const link = icon.closest('a');
+      if (!link || link.classList.contains('file-action')) return;
+      link.classList.add('file-action');
+      link.setAttribute('aria-label', label);
+      link.title = label;
+    });
+  });
+
+  document.querySelectorAll('.site-content table').forEach((table) => {
+    const rows = [...table.querySelectorAll('tbody tr')];
+    const hasDocumentDownloads = rows.some((row) => row.cells[0]?.querySelector('a[download].file-action'));
+    if (!hasDocumentDownloads) return;
+
+    const headings = [...table.querySelectorAll('thead tr th')];
+    const existingDownloadIndex = headings.findIndex((heading) => heading.textContent.trim().toLowerCase() === 'скачать');
+    if (existingDownloadIndex >= 0) {
+      headings[existingDownloadIndex].classList.add('download-column');
+      rows.forEach((row) => {
+        const titleDownload = row.cells[0]?.querySelector('a[download].file-action');
+        const downloadCell = row.cells[existingDownloadIndex];
+        if (!downloadCell) return;
+        downloadCell.classList.add('download-cell');
+        if (titleDownload && downloadCell.querySelector('a[download].file-action')) titleDownload.remove();
+        else if (titleDownload) downloadCell.append(titleDownload);
+      });
+      return;
+    }
+
+    const firstHeading = table.querySelector('thead tr th:first-child');
+    if (firstHeading && !table.querySelector('thead .download-column')) {
+      const heading = document.createElement('th');
+      heading.className = 'download-column';
+      heading.scope = 'col';
+      heading.textContent = 'Скачать';
+      firstHeading.after(heading);
+    }
+
+    rows.forEach((row) => {
+      const titleCell = row.cells[0];
+      if (!titleCell || row.querySelector('.download-cell')) return;
+      const downloadCell = document.createElement('td');
+      downloadCell.className = 'download-cell';
+      const download = titleCell.querySelector('a[download].file-action');
+      if (download) downloadCell.append(download);
+      titleCell.after(downloadCell);
+    });
+  });
+
+  document.querySelectorAll('table tbody td:first-child a[target="_blank"]').forEach((link) => {
+    if (link.querySelector('.fa') || link.querySelector('.document-link__hint')) return;
+    link.classList.add('document-link');
+    const hint = document.createElement('span');
+    hint.className = 'document-link__hint';
+    hint.textContent = '↗';
+    link.append(hint);
+
   });
 
   document.querySelectorAll('.carousel').forEach((carousel) => {

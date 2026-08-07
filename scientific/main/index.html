@@ -7,77 +7,25 @@ redirect_from:
   - /
   - /scientific/
 ---
-
-  <main role="main" class="container">
-    <h1 class="mt-5 news">Новости</h1>
-    <div class="news-list">
-    <!-- <hr class="featurette-divider"> -->
-    {% assign i = 1 %}
+<main class="container news-page">
+  <h1>Новости</h1>
+  <div class="news-list">
     {% for post in site.posts %}
-    {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-    {% if thecycle == 'odd' %}
-    <div class="row">
-      <div class="col-lg-2 col-md-3 d-none d-md-block">
-        <div class="image-cropper" id="right">
-          <img src="{{ post.ava }}" class="profile-pic" alt="">
-        </div>
-      </div>
-      <div class="col">
-      {% assign display_title = post.title | replace: 'В НИУ ВШЭ', 'В&nbsp;НИУ&nbsp;ВШЭ' %}
-      <h3><a href="{{ post.url }}" style="color: #282828;">{{ display_title }}</a></h3>
-
-      <div class="d-block d-md-none" style="margin-top: 2em; margin-bottom: 1.2em;">
-        <a href="{{ post.url }}">
-          <img src="{{ post.ava }}" width="100%" alt="">
+      {% capture card_style %}{% cycle 'news-card--tinted', 'news-card--plain' %}{% endcapture %}
+      <article class="news-card {{ card_style }}">
+        <a class="news-card__image" href="{{ post.url }}" tabindex="-1" aria-hidden="true">
+          <img src="{{ post.ava }}" alt="" loading="lazy" decoding="async">
         </a>
-      </div>
-
-      <div class="date">
-        {{ post.date | date: "%d.%m.%Y" }}
-      </div>
-
-      <div class="preview">
-          {{ post.lead }}
-      </div>
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-    {% else %}
-
-    <div class="row">
-      <div class="col">
-        {% assign display_title = post.title | replace: 'В НИУ ВШЭ', 'В&nbsp;НИУ&nbsp;ВШЭ' %}
-        <h3><a href="{{ post.url }}" style="color: #282828;">{{ display_title }}</a></h3>
-
-      <div class="d-block d-md-none" style="margin-top: 2em; margin-bottom: 1.2em;">
-        <a href="{{ post.url }}">
-          <img src="{{ post.ava }}" width="100%" alt="">
-        </a>
-      </div>
-
-        <div class="date">
-          {{ post.date | date: "%d.%m.%Y" }}
+        <div class="news-card__content">
+          <h2 class="news-card__title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+          <time class="news-card__date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d.%m.%Y' }}</time>
+          <p class="news-card__preview">{{ post.lead }}</p>
+          <a class="news-card__more" href="{{ post.url }}" aria-label="Читать новость полностью">Читать новость <span aria-hidden="true">→</span></a>
         </div>
-
-        <div class="preview">
-          {{ post.lead }}
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3 d-none d-md-block">
-        <div class="image-cropper" id="left">
-          <img src="{{ post.ava }}" class="profile-pic" alt="">
-        </div>
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-    {% endif %}
+      </article>
     {% endfor %}
   </div>
-
-<!-- Pagination links -->
-<div class="container">
-  {% include pagination.html %}
-</div>
+  <div class="news-pagination">
+    {% include pagination.html %}
+  </div>
 </main>
