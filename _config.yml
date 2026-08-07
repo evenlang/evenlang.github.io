@@ -20,10 +20,6 @@ defaults:
     values:
       layout: "default"
 
-gems:
-  - jekyll-paginate
-  - jekyll-paginate-multiple
-
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -31,10 +27,16 @@ plugins:
   - jekyll-paginate
   - jekyll-redirect-from
 
+title: Эвенская экспедиция
+description: Электронный портал о быстринском диалекте эвенского языка
+url: https://evenlang.ru
+baseurl: ""
+lang: ru
+
 paginate: 5
-paginate_path: '/evenlang_online/scientific/main/page:num/'
+paginate_path: '/scientific/main/page:num/'
 
 # paginate_multiple:
 #   - paginate: 5
-#     paginate_path: '/evenlang_online/scientific/main/page:num/'
+#     paginate_path: '/scientific/main/page:num/'
 #     sub_dir: '/scientific'

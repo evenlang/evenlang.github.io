@@ -1,0 +1,24 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2 class="footer-title">Контакты</h2>
+      <ul class="contact-list">
+        <li><strong>Антон Бузанов</strong><a href="mailto:anton.buzanov.00@gmail.com">anton.buzanov.00@gmail.com</a></li>
+        <li><strong>Анна Постникова</strong><a href="mailto:apostnikova@hse.ru">apostnikova@hse.ru</a></li>
+        <li><strong>Татьяна Казакова</strong><a href="mailto:tanusha.kazakova@gmail.com">tanusha.kazakova@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-citation">
+      <button class="citation-open" type="button" data-modal-open="citation-modal">Как на нас ссылаться</button>
+    </div>
+  </div>
+  <div class="container copyright">© 2021–{{ 'now' | date: '%Y' }} Эвенская экспедиция</div>
+</footer>
+<div class="dialog" id="citation-modal" role="dialog" aria-modal="true" aria-labelledby="citation-title" hidden>
+  <div class="dialog-backdrop" data-modal-close></div>
+  <div class="dialog-card" role="document">
+    <button class="dialog-close" type="button" data-modal-close aria-label="Закрыть">×</button>
+    <h2 id="citation-title">Как на нас ссылаться</h2>
+    <p>Бузанов А. О., Казакова Т. Б., Постникова А. Е. Электронный портал о быстринском диалекте эвенского языка, 2021. Доступен по адресу <a href="https://evenlang.ru/">evenlang.ru</a>.</p>
+  </div>
+</div>

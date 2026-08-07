@@ -4,13 +4,13 @@ title: Новости
 pagination:
   enabled: true
 redirect_from:
-  - /evenlang_online/
-  - /evenlang_online/scientific/
+  - /
+  - /scientific/
 ---
 
-  <main role="main" class="container" style="margin-bottom: 8em;">
+  <main role="main" class="container">
     <h1 class="mt-5 news">Новости</h1>
-    <div style="margin-top: 8em;">
+    <div class="news-list">
     <!-- <hr class="featurette-divider"> -->
     {% assign i = 1 %}
     {% for post in site.posts %}
@@ -19,15 +19,15 @@ redirect_from:
     <div class="row">
       <div class="col-lg-2 col-md-3 d-none d-md-block">
         <div class="image-cropper" id="right">
-          <img src="/evenlang_online{{ post.ava }}" class="profile-pic">
+          <img src="{{ post.ava }}" class="profile-pic">
         </div>
       </div>
       <div class="col">
-      <h3><a href="/evenlang_online{{ post.url }}" style="color: #282828;">{{ post.title }}</a></h3>
+      <h3><a href="{{ post.url }}" style="color: #282828;">{{ post.title }}</a></h3>
 
       <div class="d-block d-md-none" style="margin-top: 2em; margin-bottom: 1.2em;">
-        <a href="/evenlang_online{{ post.url }}">
-          <img src="/evenlang_online{{ post.ava }}" width="100%">
+        <a href="{{ post.url }}">
+          <img src="{{ post.ava }}" width="100%">
         </a>
       </div>
 
@@ -46,11 +46,11 @@ redirect_from:
 
     <div class="row">
       <div class="col">
-        <h3><a href="/evenlang_online{{ post.url }}" style="color: #282828;">{{ post.title }}</a></h3>
+        <h3><a href="{{ post.url }}" style="color: #282828;">{{ post.title }}</a></h3>
 
       <div class="d-block d-md-none" style="margin-top: 2em; margin-bottom: 1.2em;">
-        <a href="/evenlang_online{{ post.url }}">
-          <img src="/evenlang_online{{ post.ava }}" width="100%">
+        <a href="{{ post.url }}">
+          <img src="{{ post.ava }}" width="100%">
         </a>
       </div>
 
@@ -64,7 +64,7 @@ redirect_from:
       </div>
       <div class="col-lg-2 col-md-3 d-none d-md-block">
         <div class="image-cropper" id="left">
-          <img src="/evenlang_online{{ post.ava }}" class="profile-pic">
+          <img src="{{ post.ava }}" class="profile-pic">
         </div>
       </div>
     </div>

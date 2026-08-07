@@ -1,30 +1,16 @@
-<header>
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="/">Evenlang</a>
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<header class="site-header">
+  <nav class="site-nav container" aria-label="Основная навигация">
+    <a class="site-logo site-logo-text" href="{{ '/curious/main/' | relative_url }}">Evenlang</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="nav-toggle-icon" aria-hidden="true"></span><span class="sr-only">Открыть меню</span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-         <ul class="navbar-nav mr-auto">
-      {% assign titles = "Главная~/curious/main, Поле~/curious/field, О нас~/curious/about, Тексты~/curious/texts, Материалы~/curious/materials, Публикации~/curious/articles, Галерея~/curious/gallery,  " | split: ", " %}
-      {% for title in titles %}
-      {% assign tit = title | split: "~" %}
-      {% if tit[0] == page.title %}
-			<li class="nav-item">
-              <a class="nav-link" href="#">{{ tit[0] }}</a>
-            </li>
-      {% else %}
-      <li class="nav-item">
-              <a class="nav-link" href={{ tit[1] }}>{{ tit[0] }}</a>
-            </li>
-      {% endif %}
-      {% endfor %}
-          </ul>
-          <!-- <form class="form-inline mt-2 mt-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Поиск" aria-label="Поиск">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
-          </form> -->
-        </div>
-      </nav>
-    </header>
+    <div class="site-menu" id="site-menu">
+      <a href="{{ '/curious/main/' | relative_url }}"{% if page.title == 'Главная' %} aria-current="page"{% endif %}>Главная</a>
+      <a href="{{ '/curious/field.html' | relative_url }}"{% if page.title == 'Поле' %} aria-current="page"{% endif %}>Поле</a>
+      <a href="{{ '/curious/about.html' | relative_url }}"{% if page.title == 'О нас' %} aria-current="page"{% endif %}>О нас</a>
+      <a href="{{ '/curious/texts.html' | relative_url }}"{% if page.title == 'Тексты' %} aria-current="page"{% endif %}>Тексты</a>
+      <a href="{{ '/curious/articles.html' | relative_url }}"{% if page.title == 'Публикации' %} aria-current="page"{% endif %}>Публикации</a>
+      <a href="{{ '/curious/gallery.html' | relative_url }}"{% if page.title == 'Галерея' %} aria-current="page"{% endif %}>Галерея</a>
+    </div>
+  </nav>
+</header>

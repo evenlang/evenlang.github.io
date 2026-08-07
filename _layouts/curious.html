@@ -1,46 +1,24 @@
 <!doctype html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#087f86">
     {% seo %}
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/">
-	  
-	<link rel="icon" href="/static/img/icon.png">
-
-    <!-- Bootstrap core CSS -->
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
-	<link href="/bootstrap/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="/bootstrap/sticky-footer-navbar.css" rel="stylesheet">
-    <link href="/bootstrap/carousel.css" rel="stylesheet">
-    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link rel="icon" href="{{ '/static/img/icon.png' | relative_url }}">
+    <link rel="preload" href="{{ '/static/fonts/SourceSerifPro-Regular.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="{{ '/bootstrap/bootstrap.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    {% if page.title == 'Галерея' %}<link rel="stylesheet" href="{{ '/assets/css/gallery.css' | relative_url }}">{% endif %}
   </head>
   <body>
-  	{% include navigation_curious.html %}
-    {{ content }}
-        <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="{{'/bootstrap/jquery-3.2.1.slim.min.js' | relative_url}}"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write(<script src="{{'/bootstrap/jquery-slim.min.js' | relative_url}}"></script></script>
-  <script src="{{'/bootstrap/popper.min.js' | relative_url}}"></script>
-  <script src="{{'/bootstrap/bootstrap.min.js' | relative_url}}"></script>
-  <script src="{{'/bootstrap/bootstrap.js' | relative_url}}"></script>
-
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">На правах правообладателя. НИУ ВШЭ, ФиКЛ, Эвенская экспедиция</span>
-      </div>
-    </footer>
-
-
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+    {% include navigation_curious.html %}
+    <div id="main-content" class="site-content">
+      {{ content }}
+    </div>
+    {% include footer.html %}
+    <script src="{{ '/assets/js/app.js' | relative_url }}" defer></script>
+    {% if page.title == 'Галерея' %}<script src="{{ '/assets/js/gallery.js' | relative_url }}" defer></script>{% endif %}
   </body>
 </html>

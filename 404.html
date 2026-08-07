@@ -1,25 +1,12 @@
 ---
 permalink: /404.html
 layout: default
+title: Страница не найдена
+description: Запрошенная страница не найдена.
 ---
-
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Страница не найдена :(</strong></p>
-  <p>Запрашиваемая страница не существует.</p>
-</div>
+<main class="container text-center">
+  <p class="error-code" aria-hidden="true">404</p>
+  <h1 class="text-center">Страница не найдена</h1>
+  <p>Возможно, адрес изменился или в нём есть опечатка.</p>
+  <p><a class="citation-open error-home" href="{{ '/scientific/main/' | relative_url }}">Вернуться на главную</a></p>
+</main>

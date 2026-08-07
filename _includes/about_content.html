@@ -1,0 +1,24 @@
+<main class="container about-page">
+  <h1>О нас</h1>
+  <p class="lead">Состав участников проекта меняется. С момента первой экспедиции летом 2019 года Камчатку в составе команды посетили 20 человек.</p>
+  <h2>Текущий состав</h2>
+  <div class="team-grid">
+    {% for person in site.data.team.current %}
+      <article class="team-card">
+        <img src="{{ '/static/img/our_portraits_sq/' | append: person.photo | relative_url }}" width="180" height="180" alt="{{ person.name }}" loading="lazy" decoding="async">
+        <h3>{{ person.name }}</h3>
+      </article>
+    {% endfor %}
+  </div>
+  <h2>Бывшие участники</h2>
+  <p>Без них эвенский проект был бы невозможен.</p>
+  <div class="team-grid">
+    {% for person in site.data.team.former %}
+      <article class="team-card">
+        <img src="{{ '/static/img/our_portraits_sq/' | append: person.photo | relative_url }}" width="180" height="180" alt="{{ person.name }}" loading="lazy" decoding="async">
+        <h3>{{ person.name }}</h3>
+      </article>
+    {% endfor %}
+  </div>
+  <p class="team-note">Также в экспедициях участвовали Яника Волкова, Анастасия Вебер, Алексей Крупенин, Катерина Будзинская и Александра Мазалова.</p>
+</main>

@@ -1,0 +1,33 @@
+current:
+  - name: Антон Бузанов
+    photo: buzanov_anton.jpg
+  - name: Алексей Виняр
+    photo: vinyar_alexey.jpeg
+  - name: Дарья Игнатенко
+    photo: ignatenko_darya.png
+  - name: Татьяна Казакова
+    photo: kazakova_tatiana.jpg
+  - name: Карина Мищенкова
+    photo: mishchenkova_karina.jpg
+  - name: Александра Ногина
+    photo: nogina_alexandra.jpg
+  - name: Варвара Попова
+    photo: popova_varvara.jpg
+  - name: Маргарита Попова
+    photo: popova_margarita.jpeg
+  - name: Анна Постникова
+    photo: postnikova_anna.jpg
+  - name: Олег Сериков
+    photo: serikov_oleg.jpg
+  - name: Полина Уткина
+    photo: utkina_polina.jpg
+
+former:
+  - name: Алексей Бакланов
+    photo: backlanov_alexey.jpg
+  - name: Олег Волков
+    photo: volkov_oleg.png
+  - name: Инна Зибер
+    photo: ziber_inna.png
+  - name: Полина Касьянова
+    photo: kasyanova_polina.jpeg
