@@ -78,6 +78,13 @@
     link.rel = [...rel].join(' ');
   });
 
+  document.querySelectorAll('.fa-file-pdf-o').forEach((icon) => {
+    const link = icon.closest('a');
+    if (!link) return;
+    link.setAttribute('aria-label', 'Скачать PDF');
+    if (!link.title) link.title = 'Скачать PDF';
+  });
+
   document.querySelectorAll('.carousel').forEach((carousel) => {
     const slides = [...carousel.querySelectorAll('.carousel-item')];
     if (slides.length < 2) return;

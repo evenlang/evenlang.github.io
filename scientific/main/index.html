@@ -19,15 +19,16 @@ redirect_from:
     <div class="row">
       <div class="col-lg-2 col-md-3 d-none d-md-block">
         <div class="image-cropper" id="right">
-          <img src="{{ post.ava }}" class="profile-pic">
+          <img src="{{ post.ava }}" class="profile-pic" alt="">
         </div>
       </div>
       <div class="col">
-      <h3><a href="{{ post.url }}" style="color: #282828;">{{ post.title }}</a></h3>
+      {% assign display_title = post.title | replace: 'В НИУ ВШЭ', 'В&nbsp;НИУ&nbsp;ВШЭ' %}
+      <h3><a href="{{ post.url }}" style="color: #282828;">{{ display_title }}</a></h3>
 
       <div class="d-block d-md-none" style="margin-top: 2em; margin-bottom: 1.2em;">
         <a href="{{ post.url }}">
-          <img src="{{ post.ava }}" width="100%">
+          <img src="{{ post.ava }}" width="100%" alt="">
         </a>
       </div>
 
@@ -46,11 +47,12 @@ redirect_from:
 
     <div class="row">
       <div class="col">
-        <h3><a href="{{ post.url }}" style="color: #282828;">{{ post.title }}</a></h3>
+        {% assign display_title = post.title | replace: 'В НИУ ВШЭ', 'В&nbsp;НИУ&nbsp;ВШЭ' %}
+        <h3><a href="{{ post.url }}" style="color: #282828;">{{ display_title }}</a></h3>
 
       <div class="d-block d-md-none" style="margin-top: 2em; margin-bottom: 1.2em;">
         <a href="{{ post.url }}">
-          <img src="{{ post.ava }}" width="100%">
+          <img src="{{ post.ava }}" width="100%" alt="">
         </a>
       </div>
 
@@ -64,7 +66,7 @@ redirect_from:
       </div>
       <div class="col-lg-2 col-md-3 d-none d-md-block">
         <div class="image-cropper" id="left">
-          <img src="{{ post.ava }}" class="profile-pic">
+          <img src="{{ post.ava }}" class="profile-pic" alt="">
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@
       <a href="{{ '/scientific/field.html' | relative_url }}"{% if page.title == 'Поле' %} aria-current="page"{% endif %}>Поле</a>
       <a href="{{ '/scientific/about.html' | relative_url }}"{% if page.title == 'О нас' %} aria-current="page"{% endif %}>О нас</a>
       <div class="nav-dropdown">
-        <button class="dropdown-toggle" type="button" aria-expanded="false">Тексты</button>
+        <button class="dropdown-toggle" type="button" aria-expanded="false"{% if page.title == 'Тексты' or page.title == 'Газета' %} aria-current="page"{% endif %}>Тексты</button>
         <div class="dropdown-panel">
           <a href="{{ '/scientific/texts.html' | relative_url }}">Устные и письменные тексты</a>
           <a href="{{ '/scientific/texts_newspaper.html' | relative_url }}">Газета «Айдит»</a>
