@@ -3,7 +3,7 @@
   {% assign gallery_images = site.static_files | where_exp: 'image', "image.path contains '/assets/gallery/'" | sort: 'basename' %}
   {% for image in gallery_images %}
     <figure class="mosaicflow__item">
-      <button class="myBtn" type="button" data-gallery-src="{{ image.path | relative_url }}" data-gallery-key="{{ image.basename }}" aria-label="Открыть фотографию {{ forloop.index }}">
+      <button class="myBtn" type="button" data-gallery-src="{{ image.path | relative_url }}" data-gallery-key="{{ image.name }}" aria-label="Открыть фотографию {{ forloop.index }}">
         <img class="myImg" src="{{ image.path | relative_url }}" alt="Фотография экспедиции {{ forloop.index }}" loading="lazy" decoding="async">
       </button>
     </figure>
